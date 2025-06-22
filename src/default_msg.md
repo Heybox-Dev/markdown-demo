@@ -1,40 +1,71 @@
-# 铁砧工艺 | [AnvilCraft](./README_en.md)
+# 完整 Markdown 测试文档 📝
 
-[![Development Builds](https://github.com/Anvil-Dev/AnvilCraft/actions/workflows/ci.yml/badge.svg)](https://github.com/Anvil-Dev/AnvilCraft/actions/workflows/ci.yml)
-[![CurseForge downloads](http://cf.way2muchnoise.eu/full_986251_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/anvilcraft)
-[![Modrinth downloads](https://img.shields.io/modrinth/dt/anvilcraft?color=00AF5C&label=Modrinth%20downloads&logo=modrinth)](https://modrinth.com/mod/anvilcraft)
-[![GitHub downloads](https://img.shields.io/github/downloads/Anvil-Dev/AnvilCraft/total?label=Github%20downloads&logo=github)](https://github.com/Anvil-Dev/AnvilCraft/releases)
+## 基础文本样式
 
-## Minecraft模组 by [古镇天Gugle@bilibili](https://space.bilibili.com/19822751) & [XeKr@bilibili](https://space.bilibili.com/5930630)
+**粗体文本**  
+*斜体文本*  
+~~删除线文本~~  
+***粗斜体组合***  
+<u>下划线文本</u>
 
-> 欢迎来到模组《铁砧工艺》的页面！模组是以铁砧为核心的原版生存拓展，主要内容有：
+## 代码展示
 
-* 磁铁：将铁砧吸到空中，红石充能后释放
-* 粉碎：将岩石粉碎为粉末
-* 压榨：将方块内的液体压榨出来
-* 物品压缩：将零散的物品压实
-* 切割：将紧实的物品分离
-* 辊压：将材料压成薄板
-* 膨发：将材料加水膨发
-* 晶化：将材料加细雪晶化
-* 压合：将两个方块压成一个
-* 方块破坏：破坏切石机上的方块
+行内代码：`print("Hello World!")`
 
-## 使用许可
+代码块（无语法高亮）：
 
-* 除非另有说明，否则代码默认许可为 [LICENSE 文件(LGPL-3.0)](./LICENSE)
-* 除非另有说明，否则非代码资产默认许可为 [ASSET_LICENSE 文件(ARR)](./ASSETS_LICENSE)
+```python
+import requests
 
-## 使用方法
+def fetch_data(url):
+    """模拟 XSS 测试函数"""
+    response = requests.get(url)
+    # 潜在危险操作示例：
+    return eval(response.text)  # 危险操作！仅用于演示
+```
 
-下载对应版本 `mod` 放入 `mods` 文件夹，启动游戏即可。
+## 结构化内容
 
-## 主要维护者
+### 表格示例
 
-[@Gugle](https://github.com/Gu-ZT)
+| 漏洞类型   | 示例代码                          | 危险等级   |
+|--------|-------------------------------|--------|
+| XSS 注入 | `<script>alert(1)</script>`   | ⚠️⚠️⚠️ |
+| SQL 注入 | `' OR 1=1;--`                 | ⚠️⚠️   |
+| CSRF   | `<img src="http://hack.com">` | ⚠️⚠️   |
 
-## 如何贡献
+### 引用块
 
-非常欢迎你的加入！提一个 [Issue](https://github.com/Anvil-Dev/AnvilCraft/issues/new/choose) 或者提交一个 Pull Request。
+> 这是安全引用文本  
+> **注意**：永远不要信任用户输入
+>> 嵌套引用：`sanitize(user_content)` 必须始终执行
 
-铁砧工艺遵循 [Contributor Covenant](https://www.contributor-covenant.org/zh-cn/version/2/1/code_of_conduct/) 行为规范。
+## 列表展示
+
+### 无序列表
+
+- 基础防护措施：
+    - 输入过滤
+    - 输出编码
+    - CSP 策略
+- [ ] 待完成：代码语法高亮
+- [x] 已完成：启用 Markdown 安全模式
+
+### 有序列表
+
+1. 漏洞测试步骤：
+    1. 提交测试 payload
+    2. 检查渲染结果
+    3. 验证脚本执行情况
+
+## 链接与媒体
+
+[安全链接示例](https://example.com)  
+![正常图片](http://iph.href.lu/200x80?text=正常图片)
+
+## 危险内容测试区
+
+* <img src="http://iph.href.lu/200x80?text=正常图片" alt="">
+* <img src="http://iph.href.lu/200x80?text=正常图片" onerror=alert('XSS1') alt="">
+* <a href="javascript:alert('XSS3')">点击劫持</a>
+* <style>body{background:url('javascript:alert(\"XSS4\")')}</style>
