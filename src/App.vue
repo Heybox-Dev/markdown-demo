@@ -34,7 +34,20 @@ function strToElement(showMark: HTMLElement, element: string) {
 }
 
 function highlightCode(element: HTMLElement) {
-  hljs.highlightElement(element)
+  for (const tagElement of element.getElementsByTagName('code')) {
+    const classList = tagElement.className.split(' ')
+    let languageName = '';
+    for (let className of classList) {
+      if (!className.startsWith('language-')) continue;
+      languageName = className.substring(9);
+      break
+    }
+    if (languageName) {
+      element.innerHTML = hljs.highlight(element.innerText, {language: languageName}).value
+    } else {
+      hljs.highlightElement(element)
+    }
+  }
 }
 </script>
 
