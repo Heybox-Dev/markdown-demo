@@ -60,7 +60,7 @@ def fetch_data(url):
 
 ## 链接与媒体
 
-[链接示例](https://github.com/Heybox-Dev/markdwon-demo)  
+[链接示例](https://github.com/Heybox-Dev/markdown-demo)  
 ![正常图片](http://iph.href.lu/200x80?text=正常图片)
 
 ## 危险内容测试区
