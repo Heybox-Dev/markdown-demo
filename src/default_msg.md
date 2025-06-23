@@ -12,7 +12,7 @@
 
 行内代码：`print("Hello World!")`
 
-代码块（无语法高亮）：
+代码块（含语法高亮）：
 
 ```python
 import requests
@@ -48,7 +48,7 @@ def fetch_data(url):
     - 输入过滤
     - 输出编码
     - CSP 策略
-- [ ] 待完成：代码语法高亮
+- [x] 待完成：代码语法高亮
 - [x] 已完成：启用 Markdown 安全模式
 
 ### 有序列表

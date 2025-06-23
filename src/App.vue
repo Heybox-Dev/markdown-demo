@@ -3,6 +3,7 @@ import {ref} from "vue";
 import {marked} from "marked";
 import DOMPurify from 'dompurify'
 import DefaultMsg from './default_msg.md?raw'
+import hljs from 'highlight.js';
 
 const input = ref(DefaultMsg)
 
@@ -14,12 +15,26 @@ function switchChange(bl: boolean) {
   const showMark = document.getElementById('showMark')
   if (!showMark) return;
   if (typeof (mark) === 'string') {
-    showMark.innerHTML = DOMPurify.sanitize(mark)
+    strToElement(showMark, mark)
   } else {
     mark.then(mk => {
-      showMark.innerHTML = DOMPurify.sanitize(mk)
+      strToElement(showMark, mk)
     })
   }
+}
+
+function strToElement(showMark: HTMLElement, element: string) {
+  element = DOMPurify.sanitize(element)
+  let parser = new DOMParser();
+  let doc = parser.parseFromString(element, 'text/html');
+  for (const preTag of doc.body.getElementsByTagName('pre')) {
+    highlightCode(preTag)
+  }
+  showMark.innerHTML = doc.body.innerHTML
+}
+
+function highlightCode(element: HTMLElement) {
+  hljs.highlightElement(element)
 }
 </script>
 
