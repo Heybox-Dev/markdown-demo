@@ -4,7 +4,7 @@
 
 ## 测试页面
 
-* [点我前往](https://mkdwon.heybox.dev/)
+* [点我前往](https://mkdown.heybox.dev/)
 
 ## 待办事项
 
